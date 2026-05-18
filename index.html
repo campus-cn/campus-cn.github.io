@@ -12,19 +12,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --red: #D42B2B;
-    --red-dark: #A01E1E;
-    --red-light: #FF4444;
-    --gold: #C9A84C;
-    --gold-light: #E8C97A;
+    --red: #E63946;
+    --red-dark: #C1121F;
+    --red-light: #FF6B7A;
+    --red-soft: #FFE5E8;
+    --gold: #D4A24C;
+    --gold-light: #F4D58D;
+    --gold-soft: #FFF4D6;
+    --cream: #FFF8F0;
+    --cream-2: #FFEFE0;
+    --peach: #FFE4D0;
     --white: #FFFFFF;
     --off-white: #FAF9F7;
     --gray-100: #F5F4F1;
     --gray-200: #E8E6E0;
     --gray-300: #C8C4BC;
     --gray-600: #6B6560;
-    --gray-900: #1A1714;
-    --text: #1A1714;
+    --gray-900: #2D2A26;
+    --text: #2D2A26;
     --text-muted: #6B6560;
     --font-display: 'Playfair Display', serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
@@ -70,25 +75,37 @@
   /* HERO */
   .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0A0A0A 0%, #1A0505 50%, #0A0A0A 100%);
+    background: linear-gradient(135deg, var(--cream) 0%, var(--cream-2) 50%, var(--peach) 100%);
     display: flex; flex-direction: column; justify-content: center;
     padding: 100px 5% 60px;
     position: relative; overflow: hidden;
   }
+  .hero::after {
+    content: ''; position: absolute;
+    top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(230,57,70,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    bottom: -20%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(212,162,76,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
   .hero-bg {
     position: absolute; inset: 0;
     background: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1600&q=80') center/cover no-repeat;
-    opacity: 0.15;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
   }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(26,5,5,0.85) 60%, rgba(10,10,10,0.9) 100%);
-  }
+  .hero-overlay { display: none; }
   .hero-content { position: relative; z-index: 2; max-width: 900px; }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
-    color: var(--gold-light); font-size: 0.8rem; font-weight: 600;
+    background: rgba(212,162,76,0.18); border: 1px solid rgba(212,162,76,0.5);
+    color: #8B6914; font-size: 0.8rem; font-weight: 700;
     padding: 6px 16px; border-radius: 50px;
     margin-bottom: 1.5rem;
     letter-spacing: 0.05em; text-transform: uppercase;
@@ -98,15 +115,15 @@
   .hero-h1 {
     font-family: var(--font-display);
     font-size: clamp(2.2rem, 6vw, 4.5rem);
-    font-weight: 900; color: #fff;
+    font-weight: 900; color: var(--text);
     line-height: 1.1; letter-spacing: -1px;
     margin-bottom: 1.5rem;
     animation: fadeInUp 0.6s 0.1s ease both;
   }
-  .hero-h1 .accent { color: var(--red-light); }
+  .hero-h1 .accent { color: var(--red); }
   .hero-sub {
     font-size: clamp(1rem, 2vw, 1.2rem);
-    color: rgba(255,255,255,0.7);
+    color: var(--text-muted);
     line-height: 1.7; max-width: 650px;
     margin-bottom: 2.5rem;
     animation: fadeInUp 0.6s 0.2s ease both;
@@ -128,43 +145,46 @@
   }
   .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,43,43,0.45); }
   .btn-outline {
-    background: transparent; color: #fff;
+    background: rgba(255,255,255,0.6); color: var(--text);
     padding: 0.9rem 2rem; border-radius: 50px;
     font-size: 0.95rem; font-weight: 600;
-    text-decoration: none; border: 1.5px solid rgba(255,255,255,0.3); cursor: pointer;
+    text-decoration: none; border: 1.5px solid var(--gray-300); cursor: pointer;
     transition: all 0.25s;
     display: inline-flex; align-items: center; gap: 8px;
+    backdrop-filter: blur(8px);
   }
-  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+  .btn-outline:hover { border-color: var(--red); color: var(--red); background: #fff; }
 
   .hero-stats {
     display: flex; flex-wrap: wrap; gap: 2rem;
     animation: fadeInUp 0.6s 0.4s ease both;
   }
   .hero-stat { display: flex; flex-direction: column; gap: 2px; }
-  .hero-stat-num { font-size: 1.5rem; font-weight: 800; color: #fff; }
-  .hero-stat-num .gold { color: var(--gold-light); }
-  .hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; }
+  .hero-stat-num { font-size: 1.75rem; font-weight: 800; color: var(--text); font-family: var(--font-display); }
+  .hero-stat-num .gold { color: var(--red); }
+  .hero-stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
 
   .hero-scroll {
     position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(45,42,38,0.5); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
     animation: bounce 2s infinite;
   }
-  .hero-scroll::after { content: ''; width: 1px; height: 40px; background: rgba(255,255,255,0.2); }
+  .hero-scroll::after { content: ''; width: 1px; height: 40px; background: rgba(45,42,38,0.25); }
 
   /* PRICING BLOCK */
   .pricing-banner {
-    background: linear-gradient(135deg, var(--gray-900) 0%, #2D0A0A 100%);
+    background: linear-gradient(135deg, var(--gold-soft) 0%, var(--cream) 50%, var(--red-soft) 100%);
     padding: 5rem 5%;
     position: relative; overflow: hidden;
+    border-top: 1px solid rgba(212,162,76,0.2);
+    border-bottom: 1px solid rgba(230,57,70,0.15);
   }
   .pricing-banner::before {
     content: '';
     position: absolute; top: -50%; left: -10%;
     width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(212,43,43,0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(230,57,70,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
   .pricing-inner {
@@ -172,11 +192,11 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
   }
   .pricing-left { position: relative; z-index: 1; }
-  .pricing-tag { color: var(--gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .pricing-tag { color: #8B6914; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
   .pricing-h2 {
     font-family: var(--font-display);
     font-size: clamp(1.8rem, 4vw, 3rem);
-    color: #fff; font-weight: 900; line-height: 1.2;
+    color: var(--text); font-weight: 900; line-height: 1.2;
     margin-bottom: 1.5rem;
   }
   .pricing-crossed {
@@ -185,28 +205,29 @@
   }
   .price-old {
     font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
-    color: rgba(255,255,255,0.3);
+    color: rgba(45,42,38,0.35);
     text-decoration: line-through;
     text-decoration-color: var(--red);
     font-family: var(--font-display);
   }
   .price-new {
     font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900;
-    color: var(--gold-light);
+    color: var(--red);
     font-family: var(--font-display);
-    text-shadow: 0 0 40px rgba(201,168,76,0.4);
+    text-shadow: 0 4px 20px rgba(230,57,70,0.15);
   }
-  .price-note { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6; max-width: 400px; margin-top: 0.75rem; }
+  .price-note { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; max-width: 400px; margin-top: 0.75rem; }
   .pricing-right { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .benefit-card {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.7); border: 1px solid rgba(212,162,76,0.25);
     border-radius: 16px; padding: 1.25rem;
     transition: all 0.3s;
+    backdrop-filter: blur(8px);
   }
-  .benefit-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px); }
+  .benefit-card:hover { background: #fff; transform: translateY(-3px); border-color: var(--red); box-shadow: 0 12px 32px rgba(230,57,70,0.1); }
   .benefit-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-  .benefit-title { color: #fff; font-size: 0.9rem; font-weight: 600; }
-  .benefit-desc { color: rgba(255,255,255,0.5); font-size: 0.75rem; margin-top: 2px; }
+  .benefit-title { color: var(--text); font-size: 0.9rem; font-weight: 700; }
+  .benefit-desc { color: var(--text-muted); font-size: 0.75rem; margin-top: 2px; }
 
   /* SECTION COMMON */
   section { padding: 6rem 5%; }
@@ -264,28 +285,34 @@
     transition: all 0.3s;
     display: flex; flex-direction: column;
     position: relative;
+    background: #fff;
   }
-  .prog-card:hover { transform: translateY(-8px); box-shadow: 0 24px 80px rgba(0,0,0,0.1); }
-  .prog-card.featured { border-color: var(--gold); }
-  .prog-card.featured .prog-header { background: linear-gradient(135deg, #1A0A00, #3D1A00); }
+  .prog-card:hover { transform: translateY(-8px); box-shadow: 0 24px 80px rgba(230,57,70,0.12); border-color: var(--red); }
+  .prog-card.featured { border-color: var(--gold); border-width: 2px; }
+  .prog-card.featured .prog-header { background: linear-gradient(135deg, var(--gold-soft), var(--peach)); }
+  .prog-card.featured .prog-header .prog-city,
+  .prog-card.featured .prog-header .prog-name { color: var(--text); }
+  .prog-card.featured .prog-type { background: rgba(212,162,76,0.2); color: #8B6914; border-color: rgba(212,162,76,0.4); }
   .prog-badge {
     position: absolute; top: 1rem; right: 1rem;
     background: var(--gold); color: #1A0A00;
     font-size: 0.7rem; font-weight: 800;
     padding: 4px 12px; border-radius: 50px;
     letter-spacing: 0.05em; text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(212,162,76,0.3);
   }
   .prog-header {
-    background: linear-gradient(135deg, var(--gray-900), #2D1111);
+    background: linear-gradient(135deg, var(--red-soft), var(--cream-2));
     padding: 1.75rem;
-    color: #fff;
+    color: var(--text);
+    border-bottom: 1px solid rgba(230,57,70,0.1);
   }
-  .prog-city { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
-  .prog-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+  .prog-city { font-size: 0.75rem; color: var(--red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; font-weight: 700; }
+  .prog-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; }
   .prog-type {
     display: inline-block;
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.8); font-size: 0.75rem;
+    background: rgba(230,57,70,0.1); border: 1px solid rgba(230,57,70,0.2);
+    color: var(--red-dark); font-size: 0.75rem; font-weight: 600;
     padding: 3px 10px; border-radius: 50px;
   }
   .prog-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
@@ -433,7 +460,7 @@
 
   /* FINAL CTA */
   .final-cta {
-    background: linear-gradient(135deg, var(--gray-900) 0%, #1A0505 60%, var(--gray-900) 100%);
+    background: linear-gradient(135deg, var(--cream) 0%, var(--peach) 60%, var(--gold-soft) 100%);
     padding: 7rem 5%;
     text-align: center;
     position: relative; overflow: hidden;
@@ -442,27 +469,29 @@
     content: ''; position: absolute;
     top: -100px; left: 50%; transform: translateX(-50%);
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(212,43,43,0.2) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(230,57,70,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
   .final-cta h2 {
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900; color: #fff;
+    font-weight: 900; color: var(--text);
     line-height: 1.2; margin-bottom: 1.25rem;
     position: relative; z-index: 1;
   }
-  .final-cta h2 .red { color: var(--red-light); }
+  .final-cta h2 .red { color: var(--red); }
   .final-cta p {
-    color: rgba(255,255,255,0.65); font-size: 1.1rem;
+    color: var(--text-muted); font-size: 1.1rem;
     max-width: 580px; margin: 0 auto 2.5rem;
     line-height: 1.7; position: relative; z-index: 1;
   }
   .final-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; position: relative; z-index: 1; }
+  .final-cta .btn-outline { border-color: var(--text); color: var(--text); background: transparent; }
+  .final-cta .btn-outline:hover { border-color: var(--red); color: var(--red); background: #fff; }
   .urgency-bar {
-    background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
+    background: rgba(212,162,76,0.18); border: 1px solid rgba(212,162,76,0.5);
     border-radius: 50px; padding: 0.6rem 1.5rem;
-    color: var(--gold-light); font-size: 0.8rem; font-weight: 600;
+    color: #8B6914; font-size: 0.8rem; font-weight: 700;
     display: inline-flex; align-items: center; gap: 8px;
     margin-bottom: 2rem; position: relative; z-index: 1;
   }
@@ -470,20 +499,21 @@
 
   /* FOOTER */
   footer {
-    background: var(--gray-900); color: rgba(255,255,255,0.6);
+    background: var(--cream); color: var(--text-muted);
     padding: 3rem 5%;
+    border-top: 1px solid var(--gray-200);
   }
   .footer-inner {
     max-width: 1200px; margin: 0 auto;
     display: flex; flex-wrap: wrap; gap: 2rem;
     justify-content: space-between; align-items: center;
   }
-  .footer-logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; color: #fff; }
+  .footer-logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; color: var(--red); }
   .footer-logo span { color: var(--gold); }
   .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
-  .footer-links a:hover { color: #fff; }
-  .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+  .footer-links a:hover { color: var(--red); }
+  .footer-copy { font-size: 0.8rem; color: var(--gray-300); }
 
   /* FLOATING CTA */
   .floating-cta {
@@ -541,7 +571,6 @@
     <a href="#programs">Dasturlar</a>
     <a href="#how">Qanday ishlaydi</a>
     <a href="#faq">FAQ</a>
-    <a href="#testimonials">Talabalar</a>
   </div>
   <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="nav-cta">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.281c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.088 13.37l-2.948-.924c-.64-.203-.653-.64.136-.95l11.57-4.461c.533-.194 1.003.132.716.214z"/></svg>
@@ -1010,101 +1039,6 @@
         <div class="tl-content">
           <div class="tl-title" style="color:var(--red)">Xitoyga uchib ketasiz!</div>
           <div class="tl-desc">Yangi hayot, yangi imkoniyatlar. Tabriklaymiz — siz Xitoyda o'qiyapsiz! 🎉</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="section-tag">Muvaffaqiyat Hikoyalari</div>
-    <h2 class="section-title">Ular bugun <span style="color:var(--red)">Xitoyda</span> o'qiyapti</h2>
-    <p class="section-sub">Haqiqiy talabalar, haqiqiy tajribalar. Ularning muvaffaqiyati — bizning g'ururimiz.</p>
-    <div class="stats-row">
-      <div class="stat-card aos">
-        <div class="stat-num">150+</div>
-        <div class="stat-label">Jo'natilgan talabalar</div>
-      </div>
-      <div class="stat-card aos aos-delay-1">
-        <div class="stat-num">98%</div>
-        <div class="stat-label">Muvaffaqiyat darajasi</div>
-      </div>
-      <div class="stat-card aos aos-delay-2">
-        <div class="stat-num">15+</div>
-        <div class="stat-label">Xitoy universitetlari</div>
-      </div>
-      <div class="stat-card aos">
-        <div class="stat-num">5★</div>
-        <div class="stat-label">O'rtacha reyting</div>
-      </div>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card aos">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Campus.cn yordami bilan Shanxayga kirdim. Hujjatlarni tayyorlashdan viza olishgacha hamma narsada yordam berishdi. Hozir Shanxay universitetida 2-kursda o'qiyapman, stipendiyam bor!"</p>
-        <div class="testi-author">
-          <div class="testi-avatar">AK</div>
-          <div>
-            <div class="testi-name">Aziz Karimov</div>
-            <div class="testi-detail">Shanghai — Bakalavr, 2024</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card aos aos-delay-1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"HSK 4 im yo'q edi, lekin Zhongshan dasturi uchun talab qilinmaydi. 3 oyda hamma hujjatim tayyor bo'ldi, hozir Guangzhou yaqinida o'qiyapman, dam olish kunlari ish ham topganman."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">MN</div>
-          <div>
-            <div class="testi-name">Malika Nazarova</div>
-            <div class="testi-detail">Zhongshan — 1+4 Dastur, 2024</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card aos aos-delay-2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Changsha dasturi ajoyib! 2500 yuan stipendiya oyiga — bu Xitoyda yaxshi yashash uchun kifoya. O'qish va yotoqxona ham bepul. Konsultatsiya olayotganimda ishonmasdim, hozir hammasini ko'rib turibman!"</p>
-        <div class="testi-author">
-          <div class="testi-avatar">SF</div>
-          <div>
-            <div class="testi-name">Sarvar Fozilov</div>
-            <div class="testi-detail">Changsha — 1+4 Dastur, 2023</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card aos">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Ingliz tilim yaxshi, shuning uchun Foshan dasturini tanladim. IELTS bilan qabul qilishdi, hamma narsa inglizcha. Bu juda qulay — Xitoy tilini bosqichma-bosqich o'rganyapman."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">NR</div>
-          <div>
-            <div class="testi-name">Nodira Rashidova</div>
-            <div class="testi-detail">Foshan — 1+4 Ingliz dasturi, 2024</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card aos aos-delay-1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Campus.cn mutaxassislari juda professional. Hujjatlar masalasida ko'p savol berdim, hammasi sabr bilan tushuntildi. Hozir Pekindagi IT universitetida o'qiyapman — bu mening orzuyim edi!"</p>
-        <div class="testi-author">
-          <div class="testi-avatar">JY</div>
-          <div>
-            <div class="testi-name">Jasur Yusupov</div>
-            <div class="testi-detail">Beijing — Kompyuter Fanlari, 2024</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card aos aos-delay-2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Birinchi 10% to'lab, grant chiqqandan keyingina qolganini to'ladim. Bu juda qulay! Iqtisodiy jihatdan ham oilamizga og'ir bo'lmadi. Hanzhou ajoyib shahar, hayotdan mamnunman."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">ZI</div>
-          <div>
-            <div class="testi-name">Zulfiya Ibrohimova</div>
-            <div class="testi-detail">Hangzhou — Iqtisodiyot, 2024</div>
-          </div>
         </div>
       </div>
     </div>
