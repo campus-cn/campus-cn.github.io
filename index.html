@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus.cn — Xitoyda Grant Asosida O'qish 2026</title>
+<meta name="description" content="Xitoyda to'liq grant asosida o'qish. Bakalavr va 1+4 dasturlari. O'qish, yotoqxona bepul. 2026 qabuli ochiq.">
+<meta property="og:title" content="Campus.cn — Xitoyda Grant Asosida O'qish 2026">
+<meta property="og:description" content="To'liq grant bilan Xitoyda o'qish imkoniyati. Hozir ariza topshiring.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #D42B2B;
+    --red-dark: #A01E1E;
+    --red-light: #FF4444;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --white: #FFFFFF;
+    --off-white: #FAF9F7;
+    --gray-100: #F5F4F1;
+    --gray-200: #E8E6E0;
+    --gray-300: #C8C4BC;
+    --gray-600: #6B6560;
+    --gray-900: #1A1714;
+    --text: #1A1714;
+    --text-muted: #6B6560;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body { font-family: var(--font-body); color: var(--text); background: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212,43,43,0.1);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem; font-weight: 900;
+    color: var(--red);
+    letter-spacing: -0.5px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--red); }
+  .nav-cta {
+    background: var(--red); color: #fff;
+    padding: 0.5rem 1.25rem; border-radius: 50px;
+    font-size: 0.875rem; font-weight: 600;
+    text-decoration: none; transition: all 0.2s;
+    display: flex; align-items: center; gap: 6px;
+    border: none; cursor: pointer;
+  }
+  .nav-cta:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,43,43,0.3); }
+  .nav-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-menu-btn span { display: block; width: 22px; height: 2px; background: var(--text); margin: 4px 0; transition: 0.3s; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A0505 50%, #0A0A0A 100%);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 100px 5% 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1600&q=80') center/cover no-repeat;
+    opacity: 0.15;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(26,5,5,0.85) 60%, rgba(10,10,10,0.9) 100%);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light); font-size: 0.8rem; font-weight: 600;
+    padding: 6px 16px; border-radius: 50px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    animation: fadeInUp 0.6s ease both;
+  }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+  .hero-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 900; color: #fff;
+    line-height: 1.1; letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.6s 0.1s ease both;
+  }
+  .hero-h1 .accent { color: var(--red-light); }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7; max-width: 650px;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.6s 0.2s ease both;
+    font-weight: 400;
+  }
+  .hero-btns {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--red); color: #fff;
+    padding: 0.9rem 2rem; border-radius: 50px;
+    font-size: 0.95rem; font-weight: 700;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.25s;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 8px 32px rgba(212,43,43,0.35);
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,43,43,0.45); }
+  .btn-outline {
+    background: transparent; color: #fff;
+    padding: 0.9rem 2rem; border-radius: 50px;
+    font-size: 0.95rem; font-weight: 600;
+    text-decoration: none; border: 1.5px solid rgba(255,255,255,0.3); cursor: pointer;
+    transition: all 0.25s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+  .hero-stats {
+    display: flex; flex-wrap: wrap; gap: 2rem;
+    animation: fadeInUp 0.6s 0.4s ease both;
+  }
+  .hero-stat { display: flex; flex-direction: column; gap: 2px; }
+  .hero-stat-num { font-size: 1.5rem; font-weight: 800; color: #fff; }
+  .hero-stat-num .gold { color: var(--gold-light); }
+  .hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .hero-scroll {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  .hero-scroll::after { content: ''; width: 1px; height: 40px; background: rgba(255,255,255,0.2); }
+
+  /* PRICING BLOCK */
+  .pricing-banner {
+    background: linear-gradient(135deg, var(--gray-900) 0%, #2D0A0A 100%);
+    padding: 5rem 5%;
+    position: relative; overflow: hidden;
+  }
+  .pricing-banner::before {
+    content: '';
+    position: absolute; top: -50%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(212,43,43,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pricing-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .pricing-left { position: relative; z-index: 1; }
+  .pricing-tag { color: var(--gold); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .pricing-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: #fff; font-weight: 900; line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  .pricing-crossed {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .price-old {
+    font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+    color: rgba(255,255,255,0.3);
+    text-decoration: line-through;
+    text-decoration-color: var(--red);
+    font-family: var(--font-display);
+  }
+  .price-new {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900;
+    color: var(--gold-light);
+    font-family: var(--font-display);
+    text-shadow: 0 0 40px rgba(201,168,76,0.4);
+  }
+  .price-note { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6; max-width: 400px; margin-top: 0.75rem; }
+  .pricing-right { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .benefit-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 1.25rem;
+    transition: all 0.3s;
+  }
+  .benefit-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px); }
+  .benefit-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .benefit-title { color: #fff; font-size: 0.9rem; font-weight: 600; }
+  .benefit-desc { color: rgba(255,255,255,0.5); font-size: 0.75rem; margin-top: 2px; }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 5%; }
+  .section-tag {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--red);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-tag::before { content: ''; width: 24px; height: 2px; background: var(--red); }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900; color: var(--text);
+    line-height: 1.2; margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; max-width: 600px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* WHY CHINA */
+  .why-china { background: var(--off-white); }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem; margin-top: 3rem;
+  }
+  .why-card {
+    background: #fff; border-radius: 20px;
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .why-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .why-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+  .why-card:hover::before { transform: scaleX(1); }
+  .why-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .why-title { font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 0.5rem; }
+  .why-desc { color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; }
+
+  /* PROGRAMS */
+  .programs { background: var(--white); }
+  .programs-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .prog-card {
+    border-radius: 24px; overflow: hidden;
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .prog-card:hover { transform: translateY(-8px); box-shadow: 0 24px 80px rgba(0,0,0,0.1); }
+  .prog-card.featured { border-color: var(--gold); }
+  .prog-card.featured .prog-header { background: linear-gradient(135deg, #1A0A00, #3D1A00); }
+  .prog-badge {
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--gold); color: #1A0A00;
+    font-size: 0.7rem; font-weight: 800;
+    padding: 4px 12px; border-radius: 50px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .prog-header {
+    background: linear-gradient(135deg, var(--gray-900), #2D1111);
+    padding: 1.75rem;
+    color: #fff;
+  }
+  .prog-city { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
+  .prog-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+  .prog-type {
+    display: inline-block;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8); font-size: 0.75rem;
+    padding: 3px 10px; border-radius: 50px;
+  }
+  .prog-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .prog-price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+  .prog-price { font-size: 1.75rem; font-weight: 800; color: var(--red); font-family: var(--font-display); }
+  .prog-deadline {
+    background: rgba(212,43,43,0.08);
+    color: var(--red); font-size: 0.75rem; font-weight: 600;
+    padding: 4px 10px; border-radius: 50px;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .prog-features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; flex: 1; }
+  .prog-feature { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: var(--text-muted); }
+  .prog-feature .check { color: #22C55E; font-size: 1rem; }
+  .prog-feature .req { color: var(--gold); font-size: 1rem; }
+  .prog-btn {
+    background: var(--text); color: #fff;
+    padding: 0.8rem 1.5rem; border-radius: 12px;
+    font-size: 0.875rem; font-weight: 700;
+    text-decoration: none; text-align: center;
+    transition: all 0.25s; border: none; cursor: pointer;
+    display: block;
+  }
+  .prog-btn:hover { background: var(--red); transform: translateY(-2px); }
+  .prog-card.featured .prog-btn { background: var(--gold); color: #1A0A00; }
+  .prog-card.featured .prog-btn:hover { background: var(--gold-light); }
+
+  /* DOCUMENTS */
+  .documents { background: var(--off-white); }
+  .docs-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start;
+  }
+  .doc-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .doc-item {
+    display: flex; align-items: center; gap: 1rem;
+    background: #fff; border: 1px solid var(--gray-200);
+    border-radius: 14px; padding: 1rem 1.25rem;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .doc-item:hover { border-color: var(--red); transform: translateX(4px); }
+  .doc-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--red); color: #fff;
+    font-size: 0.8rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .doc-text { font-size: 0.95rem; font-weight: 500; color: var(--text); }
+  .doc-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+  .doc-cta-box {
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    border-radius: 24px; padding: 2.5rem;
+    color: #fff; position: sticky; top: 88px;
+  }
+  .doc-cta-box h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .doc-cta-box p { opacity: 0.8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
+  .doc-cta-box .btn { background: #fff; color: var(--red); font-weight: 700; padding: 0.9rem 1.5rem; border-radius: 12px; text-decoration: none; display: block; text-align: center; transition: all 0.2s; border: none; cursor: pointer; font-size: 0.9rem; }
+  .doc-cta-box .btn:hover { background: rgba(255,255,255,0.9); transform: translateY(-2px); }
+  .fee-note { margin-top: 1.25rem; background: rgba(0,0,0,0.15); border-radius: 10px; padding: 0.9rem 1rem; font-size: 0.8rem; opacity: 0.9; line-height: 1.5; }
+
+  /* HOW IT WORKS */
+  .how-it-works { background: var(--white); }
+  .timeline {
+    display: flex; flex-direction: column; gap: 0;
+    margin-top: 3rem; position: relative;
+    max-width: 700px;
+  }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 24px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(to bottom, var(--red), var(--gold));
+  }
+  .tl-item { display: flex; gap: 2rem; padding-bottom: 2.5rem; position: relative; }
+  .tl-dot {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: var(--white); border: 3px solid var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: var(--red); font-size: 0.9rem;
+    flex-shrink: 0; position: relative; z-index: 1;
+    transition: all 0.3s;
+  }
+  .tl-item:hover .tl-dot { background: var(--red); color: #fff; }
+  .tl-content { padding-top: 10px; }
+  .tl-title { font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 4px; }
+  .tl-desc { color: var(--text-muted); font-size: 0.875rem; line-height: 1.6; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--off-white); }
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem; margin-top: 3rem;
+  }
+  .testi-card {
+    background: #fff; border-radius: 20px;
+    padding: 1.75rem; border: 1px solid var(--gray-200);
+    transition: all 0.3s;
+  }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.07); }
+  .testi-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.75rem; letter-spacing: 2px; }
+  .testi-text { font-size: 0.9rem; color: var(--text); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+  .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--red), var(--red-dark)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .testi-name { font-weight: 700; font-size: 0.9rem; color: var(--text); }
+  .testi-detail { font-size: 0.75rem; color: var(--text-muted); }
+  .stats-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.25rem; margin-top: 3rem;
+  }
+  .stat-card {
+    background: #fff; border-radius: 16px;
+    padding: 1.5rem; text-align: center;
+    border: 1px solid var(--gray-200);
+  }
+  .stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; color: var(--red); margin-bottom: 4px; }
+  .stat-label { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* FAQ */
+  .faq { background: var(--white); }
+  .faq-list { max-width: 800px; margin-top: 3rem; display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 1px solid var(--gray-200); }
+  .faq-question {
+    width: 100%; text-align: left; background: none; border: none;
+    padding: 1.25rem 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 1rem; font-weight: 600; color: var(--text);
+    cursor: pointer; gap: 1rem;
+    transition: color 0.2s;
+  }
+  .faq-question:hover { color: var(--red); }
+  .faq-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--gray-100); display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0; transition: all 0.3s;
+    font-weight: 400; color: var(--text-muted);
+  }
+  .faq-item.open .faq-icon { background: var(--red); color: #fff; transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s;
+    color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1.25rem; }
+  .faq-cta { margin-top: 3rem; text-align: center; }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: linear-gradient(135deg, var(--gray-900) 0%, #1A0505 60%, var(--gray-900) 100%);
+    padding: 7rem 5%;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: ''; position: absolute;
+    top: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(212,43,43,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .final-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900; color: #fff;
+    line-height: 1.2; margin-bottom: 1.25rem;
+    position: relative; z-index: 1;
+  }
+  .final-cta h2 .red { color: var(--red-light); }
+  .final-cta p {
+    color: rgba(255,255,255,0.65); font-size: 1.1rem;
+    max-width: 580px; margin: 0 auto 2.5rem;
+    line-height: 1.7; position: relative; z-index: 1;
+  }
+  .final-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; position: relative; z-index: 1; }
+  .urgency-bar {
+    background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 50px; padding: 0.6rem 1.5rem;
+    color: var(--gold-light); font-size: 0.8rem; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 2rem; position: relative; z-index: 1;
+  }
+  .urgency-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+
+  /* FOOTER */
+  footer {
+    background: var(--gray-900); color: rgba(255,255,255,0.6);
+    padding: 3rem 5%;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 2rem;
+    justify-content: space-between; align-items: center;
+  }
+  .footer-logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; color: #fff; }
+  .footer-logo span { color: var(--gold); }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+  .footer-links a:hover { color: #fff; }
+  .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+  /* FLOATING CTA */
+  .floating-cta {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+    background: #fff; padding: 1rem 1.25rem;
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.12);
+    display: none;
+  }
+  .floating-cta a { display: block; background: var(--red); color: #fff; text-align: center; padding: 0.9rem; border-radius: 14px; font-weight: 700; font-size: 0.95rem; text-decoration: none; }
+
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.3); } }
+  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-8px); } }
+  @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+
+  .gold-shimmer {
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    background-size: 200%;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Animate on scroll */
+  .aos { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .aos.visible { opacity: 1; transform: translateY(0); }
+  .aos-delay-1 { transition-delay: 0.1s; }
+  .aos-delay-2 { transition-delay: 0.2s; }
+  .aos-delay-3 { transition-delay: 0.3s; }
+
+  @media (max-width: 900px) {
+    .pricing-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .docs-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .floating-cta { display: block; }
+    body { padding-bottom: 80px; }
+  }
+  @media (max-width: 640px) {
+    .hero-btns { flex-direction: column; }
+    .hero-btns .btn-primary, .hero-btns .btn-outline { width: 100%; justify-content: center; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .pricing-right { grid-template-columns: 1fr; }
+    .final-btns { flex-direction: column; align-items: center; }
+    .final-btns .btn-primary, .final-btns .btn-outline { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Campus<span>.cn</span></div>
+  <div class="nav-links">
+    <a href="#programs">Dasturlar</a>
+    <a href="#how">Qanday ishlaydi</a>
+    <a href="#faq">FAQ</a>
+    <a href="#testimonials">Talabalar</a>
+  </div>
+  <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="nav-cta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.281c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.088 13.37l-2.948-.924c-.64-.203-.653-.64.136-.95l11.57-4.461c.533-.194 1.003.132.716.214z"/></svg>
+    Konsultatsiya
+  </a>
+  <button class="nav-menu-btn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🎓 2026 Qabuli Ochiq — Joylar Cheklangan</div>
+    <h1 class="hero-h1">
+      Xitoyda <span class="accent">grant asosida</span><br>o'qish — 2026 qabuli
+    </h1>
+    <p class="hero-sub">
+      Bakalavr va 1+4 grant dasturlari. O'qish va yotoqxona bepul. Ayrim dasturlarda stipendiya ham mavjud. Shanghai, Beijing, Hangzhou va boshqa shaharlarda o'qish imkoniyati.
+    </p>
+    <div class="hero-btns">
+      <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.281c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.088 13.37l-2.948-.924c-.64-.203-.653-.64.136-.95l11.57-4.461c.533-.194 1.003.132.716.214z"/></svg>
+        Telegram orqali konsultatsiya olish
+      </a>
+      <a href="#programs" class="btn-outline">
+        Grantlarni ko'rish →
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num"><span class="gold">7+</span></span>
+        <span class="hero-stat-label">Grant dasturlari</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num"><span class="gold">100%</span></span>
+        <span class="hero-stat-label">Ayrim dasturlarda kafolat</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num"><span class="gold">$0</span></span>
+        <span class="hero-stat-label">O'qish to'lovi</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num"><span class="gold">2500¥</span></span>
+        <span class="hero-stat-label">Oylik stipendiya</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Pastga aylantiring</div>
+</section>
+
+<!-- PRICING BANNER -->
+<div class="pricing-banner">
+  <div class="pricing-inner">
+    <div class="pricing-left">
+      <div class="pricing-tag">💰 Haqiqiy qiymat</div>
+      <h2 class="pricing-h2">Xitoyda o'qishning real narxi qancha?</h2>
+      <div class="pricing-crossed">
+        <span class="price-old">$50,000+</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+        <span style="font-size:1rem;color:rgba(255,255,255,0.5);">Siz to'laysiz:</span>
+        <span class="price-new">$2500–3000</span>
+      </div>
+      <p class="price-note">
+        Xitoyda 4 yillik o'qishning real qiymati $50,000+, lekin grant orqali siz <strong style="color:var(--gold-light)">faqat konsultatsiya va hujjat topshirish xizmatlari uchun</strong> to'laysiz. O'qish, yotoqxona, ba'zi dasturlarda stipendiya — hammasi grant tomonidan qoplanadi.
+      </p>
+      <div style="margin-top:1.5rem;">
+        <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="btn-primary">
+          Menga mos grantni tanlash →
+        </a>
+      </div>
+    </div>
+    <div class="pricing-right">
+      <div class="benefit-card">
+        <div class="benefit-icon">🎓</div>
+        <div class="benefit-title">To'liq grant</div>
+        <div class="benefit-desc">O'qish to'lovi davlat tomonidan</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏠</div>
+        <div class="benefit-title">Bepul yotoqxona</div>
+        <div class="benefit-desc">Kampus ichida joylashish</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💰</div>
+        <div class="benefit-title">Oylik stipendiya</div>
+        <div class="benefit-desc">Ba'zi dasturlarda 1300–2500 yuan</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">✈️</div>
+        <div class="benefit-title">Viza yordami</div>
+        <div class="benefit-desc">Hujjat va viza qo'llab-quvvatlash</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🆓</div>
+        <div class="benefit-title">CSCA talab yo'q</div>
+        <div class="benefit-desc">Ayrim dasturlarda zarur emas</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <div class="benefit-title">10% oldindan</div>
+        <div class="benefit-desc">Qolgan summa grant chiqqandan keyin</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY CHINA -->
+<section class="why-china" id="why">
+  <div class="container">
+    <div class="section-tag">Nega Xitoy?</div>
+    <h2 class="section-title">Xitoyda o'qishning <span style="color:var(--red)">7 kuchli</span> sababi</h2>
+    <p class="section-sub">Dunyo iqtisodiyotining yetakchisi — zamonaviy imkoniyatlar, xalqaro diplom, ijodiy hayot.</p>
+    <div class="why-grid">
+      <div class="why-card aos">
+        <div class="why-icon">🌍</div>
+        <div class="why-title">Xalqaro diplom</div>
+        <div class="why-desc">Xitoy universitetlari diplomi dunyoda tan olingan, karyerangizni global miqyosda boshlang.</div>
+      </div>
+      <div class="why-card aos aos-delay-1">
+        <div class="why-icon">🎓</div>
+        <div class="why-title">Grant imkoniyatlari</div>
+        <div class="why-desc">Hukumat va universitetlar grantlari orqali to'liq moliyalashtirish — o'qish bepul.</div>
+      </div>
+      <div class="why-card aos aos-delay-2">
+        <div class="why-icon">💼</div>
+        <div class="why-title">Karyera imkoniyatlari</div>
+        <div class="why-desc">Dunyo iqtisodiyotining 2-raqami. Xitoy tili bilan ish topish ancha oson.</div>
+      </div>
+      <div class="why-card aos">
+        <div class="why-icon">🛡️</div>
+        <div class="why-title">Xavfsiz muhit</div>
+        <div class="why-desc">Xitoy — dunyoning eng xavfsiz mamlakatlaridan biri. Kampus ichida barcha sharoitlar bor.</div>
+      </div>
+      <div class="why-card aos aos-delay-1">
+        <div class="why-icon">🏙️</div>
+        <div class="why-title">Zamonaviy shaharlar</div>
+        <div class="why-desc">Shanghai, Beijing, Hangzhou — dunyoning eng zamonaviy, ajoyib shaharlarida yashang.</div>
+      </div>
+      <div class="why-card aos aos-delay-2">
+        <div class="why-icon">🌐</div>
+        <div class="why-title">Xalqaro hayot</div>
+        <div class="why-desc">150+ mamlakatdan talabalar bilan birga o'qing. Haqiqiy xalqaro tajriba.</div>
+      </div>
+      <div class="why-card aos">
+        <div class="why-icon">📈</div>
+        <div class="why-title">Tez o'sayotgan iqtisodiyot</div>
+        <div class="why-desc">Texnologiya, tijorat, moliya — Xitoyda kelajak uchun zarur ko'nikmalarni oling.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="container">
+    <div class="section-tag">Grant Dasturlari</div>
+    <h2 class="section-title">2026 yil <span style="color:var(--red)">faol</span> grant dasturlari</h2>
+    <p class="section-sub">Har bir talaba uchun mos dastur bor. Deadline yaqin — hozir o'rningizni band qiling.</p>
+    <div class="programs-grid">
+
+      <!-- P1: Shanghai -->
+      <div class="prog-card aos">
+        <div class="prog-header">
+          <div class="prog-city">📍 Shanghai</div>
+          <div class="prog-name">Bakalavr Granti</div>
+          <span class="prog-type">4 yillik bakalavr</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-price-row">
+            <span class="prog-price">$3,000</span>
+          </div>
+          <div class="prog-features">
+            <div class="prog-feature"><span class="check">✓</span> Bepul o'qish (grant)</div>
+            <div class="prog-feature"><span class="check">✓</span> Bepul yotoqxona</div>
+            <div class="prog-feature"><span class="check">✓</span> 1300 yuan/oy stipendiya</div>
+            <div class="prog-feature"><span class="req">•</span> HSK 4 talab qilinadi</div>
+            <div class="prog-feature"><span class="req">•</span> Yosh: 18–25</div>
+          </div>
+          <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="prog-btn">Ariza topshirish →</a>
+        </div>
+      </div>
+
+      <!-- P2: Hangzhou -->
+      <div class="prog-card aos aos-delay-1">
+        <div class="prog-badge">Deadline: May 31</div>
+        <div class="prog-header">
+          <div class="prog-city">📍 Hangzhou</div>
+          <div class="prog-name">Bakalavr Granti</div>
+          <span class="prog-type">Iqtisodiyot</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-price-row">
+            <span class="prog-price">$2,500</span>
+            <span class="prog-deadline">⏰ May 31</span>
+          </div>
+          <div class="prog-features">
+            <div class="prog-feature"><span class="check">✓</span> Bepul o'qish (grant)</div>
+            <div class="prog-feature"><span class="check">✓</span> Bepul yotoqxona (2-kishilik)</div>
+            <div class="prog-feature"><span class="req">•</span> HSK 4 (210+ ball)</div>
+            <div class="prog-feature"><span class="req">•</span> Yo'nalish: Iqtisodiyot</div>
+          </div>
+          <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="prog-btn">Ariza topshirish →</a>
+        </div>
+      </div>
+
+      <!-- P3: Beijing -->
+      <div class="prog-card aos aos-delay-2">
+        <div class="prog-badge">Deadline: May 31</div>
+        <div class="prog-header">
+          <div class="prog-city">📍 Beijing</div>
+          <div class="prog-name">Bakalavr Granti</div>
+          <span class="prog-type">Kompyuter fanlari</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-price-row">
+            <span class="prog-price">$2,500</span>
+            <span class="prog-deadline">⏰ May 31</span>
+          </div>
+          <div class="prog-features">
+            <div class="prog-feature"><span class="check">✓</span> Bepul o'qish (grant)</div>
+            <div class="prog-feature"><span class="check">✓</span> Bepul yotoqxona</div>
+            <div class="prog-feature"><span class="req">•</span> HSK 4 talab qilinadi</div>
+            <div class="prog-feature"><span class="req">•</span> Kompyuter fanlari va texnologiyalar</div>
+          </div>
+          <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="prog-btn">Ariza topshirish →</a>
+        </div>
+      </div>
+
+      <!-- P4: Chongqing -->
+      <div class="prog-card aos">
+        <div class="prog-badge">Deadline: May 31</div>
+        <div class="prog-header">
+          <div class="prog-city">📍 Chongqing</div>
+          <div class="prog-name">Bakalavr Granti</div>
+          <span class="prog-type">Xitoy tili ta'limi</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-price-row">
+            <span class="prog-price">$2,500</span>
+            <span class="prog-deadline">⏰ May 31</span>
+          </div>
+          <div class="prog-features">
+            <div class="prog-feature"><span class="check">✓</span> Bepul o'qish (grant)</div>
+            <div class="prog-feature"><span class="check">✓</span> Bepul yotoqxona</div>
+            <div class="prog-feature"><span class="req">•</span> HSK 4 talab qilinadi</div>
+            <div class="prog-feature"><span class="req">•</span> Xalqaro Xitoy tili ta'limi</div>
+          </div>
+          <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="prog-btn">Ariza topshirish →</a>
+        </div>
+      </div>
+
+      <!-- P5: Changsha - FEATURED -->
+      <div class="prog-card featured aos aos-delay-1">
+        <div class="prog-badge">100% Kafolat</div>
+        <div class="prog-header">
+          <div class="prog-city">📍 Changsha</div>
+          <div class="prog-name">1+4 Grant Dasturi</div>
+          <span class="prog-type">1 yil til + 4 yil bakalavr</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-price-row">
+            <span class="prog-price" style="color:var(--gold);">$3,000</span>
+          </div>
+          <div class="prog-features">
+            <div class="prog-feature"><span class="check">✓</span> Bepul o'qish (grant)</div>
+            <div class="prog-feature"><span class="check">✓</span> Bepul yotoqxona</div>
+            <div class="prog-feature"><span class="check">✓</span> <strong>2500 yuan/oy stipendiya</strong></div>
+            <div class="prog-feature"><span class="check">✓</span> CSCA talab yo'q</div>
+            <div class="prog-feature"><span class="check">✓</span> 100% qabul kafolati</div>
+            <div class="prog-feature"><span class="req">•</span> HSK 4, Yosh: 18–25</div>
+          </div>
+          <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="prog-btn">Ariza topshirish →</a>
+        </div>
+      </div>
+
+      <!-- P6: Foshan -->
+      <div class="prog-card aos aos-delay-2">
+        <div class="prog-badge">Ingliz tilida</div>
+        <div class="prog-header">
+          <div class="prog-city">📍 Foshan</div>
+          <div class="prog-name">1+4 Grant Dasturi</div>
+          <span class="prog-type">Ingliz tilida o'qitish</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-price-row">
+            <span class="prog-price">$3,000</span>
+            <span class="prog-deadline">⏰ May 30</span>
+          </div>
+          <div class="prog-features">
+            <div class="prog-feature"><span class="check">✓</span> Bepul o'qish (grant)</div>
+            <div class="prog-feature"><span class="check">✓</span> Yotoqxona (3000 yuan/yil)</div>
+            <div class="prog-feature"><span class="check">✓</span> Ingliz tilida darslar</div>
+            <div class="prog-feature"><span class="req">•</span> IELTS / TOEFL / Duolingo</div>
+            <div class="prog-feature"><span class="req">•</span> 1 yil asos + 4 yil bakalavr</div>
+          </div>
+          <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="prog-btn">Ariza topshirish →</a>
+        </div>
+      </div>
+
+      <!-- P7: Zhongshan -->
+      <div class="prog-card aos">
+        <div class="prog-badge">HSK talab yo'q</div>
+        <div class="prog-header">
+          <div class="prog-city">📍 Zhongshan</div>
+          <div class="prog-name">1+4 Grant Dasturi</div>
+          <span class="prog-type">Til tayyorlash + bakalavr</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-price-row">
+            <span class="prog-price">$3,000</span>
+            <span class="prog-deadline">⏰ May 30</span>
+          </div>
+          <div class="prog-features">
+            <div class="prog-feature"><span class="check">✓</span> Bepul o'qish (grant)</div>
+            <div class="prog-feature"><span class="check">✓</span> Bepul yotoqxona</div>
+            <div class="prog-feature"><span class="check">✓</span> HSK talab yo'q</div>
+            <div class="prog-feature"><span class="check">✓</span> Guangzhouga yaqin (ish imkoniyatlari)</div>
+            <div class="prog-feature"><span class="req">•</span> Yosh: 18–25</div>
+          </div>
+          <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="prog-btn">Ariza topshirish →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section class="documents" id="documents">
+  <div class="container">
+    <div class="docs-grid">
+      <div>
+        <div class="section-tag">Hujjatlar</div>
+        <h2 class="section-title">Kerakli hujjatlar <span style="color:var(--red)">ro'yxati</span></h2>
+        <p class="section-sub" style="margin-bottom:2rem;">Barcha hujjatlarni yig'ing va jarayonni boshlang. Bizning mutaxassislarimiz har bir bosqichda yordam beradi.</p>
+        <div class="doc-list">
+          <div class="doc-item aos">
+            <div class="doc-num">1</div>
+            <div>
+              <div class="doc-text">Pasport</div>
+              <div class="doc-sub">Amal qilish muddati kamida 2 yil qolgan</div>
+            </div>
+          </div>
+          <div class="doc-item aos aos-delay-1">
+            <div class="doc-num">2</div>
+            <div>
+              <div class="doc-text">Maktab attestati</div>
+              <div class="doc-sub">Notarial tasdiqlangan nusxa</div>
+            </div>
+          </div>
+          <div class="doc-item aos aos-delay-2">
+            <div class="doc-num">3</div>
+            <div>
+              <div class="doc-text">Elektron 3×4 rasm</div>
+              <div class="doc-sub">Oq fonda, shaffof formatda</div>
+            </div>
+          </div>
+          <div class="doc-item aos">
+            <div class="doc-num">4</div>
+            <div>
+              <div class="doc-text">Politsiya ma'lumotnomasi</div>
+              <div class="doc-sub">Sud javobgarligiga tortilmaganlik</div>
+            </div>
+          </div>
+          <div class="doc-item aos aos-delay-1">
+            <div class="doc-num">5</div>
+            <div>
+              <div class="doc-text">Tibbiy ko'rik</div>
+              <div class="doc-sub">Xalqaro talablarga mos</div>
+            </div>
+          </div>
+          <div class="doc-item aos aos-delay-2">
+            <div class="doc-num">6</div>
+            <div>
+              <div class="doc-text">Til sertifikati</div>
+              <div class="doc-sub">HSK, IELTS yoki TOEFL (talab bo'lsa)</div>
+            </div>
+          </div>
+          <div class="doc-item aos">
+            <div class="doc-num">7</div>
+            <div>
+              <div class="doc-text">2 ta tavsiya xati</div>
+              <div class="doc-sub">O'qituvchi yoki maktab rahbaridan</div>
+            </div>
+          </div>
+          <div class="doc-item aos aos-delay-1">
+            <div class="doc-num">8</div>
+            <div>
+              <div class="doc-text">O'qish rejasi (Study Plan)</div>
+              <div class="doc-sub">Nima o'qimoqchi ekanligingiz haqida</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="doc-cta-box aos">
+          <h3>Hujjatlarni yig'ishda yordam kerakmi?</h3>
+          <p>Bizning mutaxassislarimiz hujjatlarni to'g'ri tayyorlashda, tarjima va tasdiqlashda to'liq yordam beradi. Jarayon ancha oson!</p>
+          <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="btn">
+            Hujjat topshirishni boshlash →
+          </a>
+          <div class="fee-note">
+            💡 <strong>Qulay to'lov:</strong> Xizmat narxining faqat 10%ini oldindan to'laysiz. Qolgan summa grant qabul qilinganidan keyin to'lanadi.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how">
+  <div class="container">
+    <div class="section-tag">Jarayon</div>
+    <h2 class="section-title">Qanday <span style="color:var(--red)">ishlaydi?</span></h2>
+    <p class="section-sub">7 oddiy qadam va siz Xitoyda o'qiyapsiz. Biz har bir bosqichda yoningizda!</p>
+    <div class="timeline">
+      <div class="tl-item aos">
+        <div class="tl-dot">1</div>
+        <div class="tl-content">
+          <div class="tl-title">Hujjatlarni yuboring</div>
+          <div class="tl-desc">Telegram orqali bog'laning. Bizning mutaxassis hujjatlar ro'yxatini yuboradi va tayyorlashda yordam beradi.</div>
+        </div>
+      </div>
+      <div class="tl-item aos aos-delay-1">
+        <div class="tl-dot">2</div>
+        <div class="tl-content">
+          <div class="tl-title">Universitetga ariza</div>
+          <div class="tl-desc">Biz hujjatlaringizni tekshirib, universitetga yuboramiz. Siz hech narsa qilmaysiz.</div>
+        </div>
+      </div>
+      <div class="tl-item aos aos-delay-2">
+        <div class="tl-dot">3</div>
+        <div class="tl-content">
+          <div class="tl-title">Taklif xatini olish</div>
+          <div class="tl-desc">Universitet ariza ko'rib chiqib, qabul xatini yuboradi. Bu 2–4 hafta ichida bo'ladi.</div>
+        </div>
+      </div>
+      <div class="tl-item aos">
+        <div class="tl-dot">4</div>
+        <div class="tl-content">
+          <div class="tl-title">Qolgan to'lovni amalga oshirish</div>
+          <div class="tl-desc">Grant tasdiqlangandan keyin xizmat narxining qolgan qismi to'lanadi (faqat 10% oldindan).</div>
+        </div>
+      </div>
+      <div class="tl-item aos aos-delay-1">
+        <div class="tl-dot">5</div>
+        <div class="tl-content">
+          <div class="tl-title">Rasmiy qabul</div>
+          <div class="tl-desc">Grant qabul qilindi! Universitetning rasmiy qabul xatini olasiz.</div>
+        </div>
+      </div>
+      <div class="tl-item aos aos-delay-2">
+        <div class="tl-dot">6</div>
+        <div class="tl-content">
+          <div class="tl-title">Viza hujjatlari</div>
+          <div class="tl-desc">Xitoy konsulligiga viza uchun kerakli barcha hujjatlarni tayyorlaymiz.</div>
+        </div>
+      </div>
+      <div class="tl-item aos">
+        <div class="tl-dot" style="border-color:var(--gold);color:var(--gold);">✈️</div>
+        <div class="tl-content">
+          <div class="tl-title" style="color:var(--red)">Xitoyga uchib ketasiz!</div>
+          <div class="tl-desc">Yangi hayot, yangi imkoniyatlar. Tabriklaymiz — siz Xitoyda o'qiyapsiz! 🎉</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-tag">Muvaffaqiyat Hikoyalari</div>
+    <h2 class="section-title">Ular bugun <span style="color:var(--red)">Xitoyda</span> o'qiyapti</h2>
+    <p class="section-sub">Haqiqiy talabalar, haqiqiy tajribalar. Ularning muvaffaqiyati — bizning g'ururimiz.</p>
+    <div class="stats-row">
+      <div class="stat-card aos">
+        <div class="stat-num">150+</div>
+        <div class="stat-label">Jo'natilgan talabalar</div>
+      </div>
+      <div class="stat-card aos aos-delay-1">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Muvaffaqiyat darajasi</div>
+      </div>
+      <div class="stat-card aos aos-delay-2">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Xitoy universitetlari</div>
+      </div>
+      <div class="stat-card aos">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">O'rtacha reyting</div>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card aos">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Campus.cn yordami bilan Shanxayga kirdim. Hujjatlarni tayyorlashdan viza olishgacha hamma narsada yordam berishdi. Hozir Shanxay universitetida 2-kursda o'qiyapman, stipendiyam bor!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AK</div>
+          <div>
+            <div class="testi-name">Aziz Karimov</div>
+            <div class="testi-detail">Shanghai — Bakalavr, 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card aos aos-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"HSK 4 im yo'q edi, lekin Zhongshan dasturi uchun talab qilinmaydi. 3 oyda hamma hujjatim tayyor bo'ldi, hozir Guangzhou yaqinida o'qiyapman, dam olish kunlari ish ham topganman."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MN</div>
+          <div>
+            <div class="testi-name">Malika Nazarova</div>
+            <div class="testi-detail">Zhongshan — 1+4 Dastur, 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card aos aos-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Changsha dasturi ajoyib! 2500 yuan stipendiya oyiga — bu Xitoyda yaxshi yashash uchun kifoya. O'qish va yotoqxona ham bepul. Konsultatsiya olayotganimda ishonmasdim, hozir hammasini ko'rib turibman!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SF</div>
+          <div>
+            <div class="testi-name">Sarvar Fozilov</div>
+            <div class="testi-detail">Changsha — 1+4 Dastur, 2023</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card aos">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Ingliz tilim yaxshi, shuning uchun Foshan dasturini tanladim. IELTS bilan qabul qilishdi, hamma narsa inglizcha. Bu juda qulay — Xitoy tilini bosqichma-bosqich o'rganyapman."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">NR</div>
+          <div>
+            <div class="testi-name">Nodira Rashidova</div>
+            <div class="testi-detail">Foshan — 1+4 Ingliz dasturi, 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card aos aos-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Campus.cn mutaxassislari juda professional. Hujjatlar masalasida ko'p savol berdim, hammasi sabr bilan tushuntildi. Hozir Pekindagi IT universitetida o'qiyapman — bu mening orzuyim edi!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JY</div>
+          <div>
+            <div class="testi-name">Jasur Yusupov</div>
+            <div class="testi-detail">Beijing — Kompyuter Fanlari, 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card aos aos-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Birinchi 10% to'lab, grant chiqqandan keyingina qolganini to'ladim. Bu juda qulay! Iqtisodiy jihatdan ham oilamizga og'ir bo'lmadi. Hanzhou ajoyib shahar, hayotdan mamnunman."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">ZI</div>
+          <div>
+            <div class="testi-name">Zulfiya Ibrohimova</div>
+            <div class="testi-detail">Hangzhou — Iqtisodiyot, 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-tag">Ko'p so'raladigan savollar</div>
+    <h2 class="section-title">Savol va <span style="color:var(--red)">javoblar</span></h2>
+    <p class="section-sub">Eng ko'p so'raladigan savollarga aniq javoblar.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          HSK sertifikati kerakmi?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Ko'pchilik dasturlarda HSK 4 talab qilinadi. Ammo Zhongshan 1+4 dasturida HSK <strong>talab qilinmaydi</strong> — bu dastur aynan siz uchun! Foshan dasturi esa ingliz tili sertifikati (IELTS/TOEFL) bilan qabul qiladi. Bizning konsultant qaysi dastur sizga mos ekanini aniqlashga yordam beradi.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          IELTS yoki TOEFL kerakmi?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Faqat ingliz tilida o'qitiladigan dasturlarda (Foshan) IELTS, TOEFL yoki Duolingo talab qilinadi. Qolgan barcha dasturlarda faqat HSK 4 yoki hech qanday til sertifikati talab qilinmaydi.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Grant 100% kafolatlanadimi?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Changsha 1+4 dasturida <strong>100% qabul kafolati</strong> beriladi. Boshqa dasturlarda muvaffaqiyat darajasi juda yuqori — 95%+ — chunki biz faqat talabaga mos dasturlarni tavsiya qilamiz. Hujjatlaringiz to'liq bo'lsa, qabul imkoniyati maksimal darajada.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Xitoyda ishlash mumkinmi?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Ha, talabalar o'quv yili davomida haftasiga cheklangan soatlarda, dam olish va ta'til kunlarida esa erkin ishlashi mumkin. Guangzhouga yaqin Zhongshan shahrida ayniqsa ko'plab ish imkoniyatlari mavjud.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Viza qanday olinadi?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Qabul xatini olgandan so'ng Toshkentdagi Xitoy konsulligiga murojaat qilasiz. Biz barcha kerakli hujjatlarni tayyorlashda to'liq yordam beramiz. Odatda viza 7–14 ish kunida beriladi.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Qachon javob chiqadi?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Hujjatlarni topshirganingizdan 2–6 hafta ichida universitetdan javob keladi. Shoshilinch holatlar uchun tezlashtirilgan ko'rib chiqish ham mumkin. Shuning uchun ertaroq ariza topshirish muhim — joylar cheklangan!
+        </div>
+      </div>
+    </div>
+    <div class="faq-cta">
+      <p style="color:var(--text-muted);margin-bottom:1.25rem;">Boshqa savollaringiz bormi? Mutaxassisimizga murojaat qiling!</p>
+      <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.281c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.088 13.37l-2.948-.924c-.64-.203-.653-.64.136-.95l11.57-4.461c.533-.194 1.003.132.716.214z"/></svg>
+        Telegram orqali savol berish
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="apply">
+  <div class="urgency-bar">
+    <span class="urgency-dot"></span>
+    Joylar cheklangan — 2026 qabuli davom etmoqda
+  </div>
+  <h2>Joylar cheklangan — <span class="red">hozir</span> hujjat topshirishni boshlang</h2>
+  <p>Har bir grant dasturida kvotalar cheklangan. Ko'p talabalar allaqachon ariza topshirdi. Kechiktirmang — Xitoyda o'qish orzuyingizni bugun boshlang.</p>
+  <div class="final-btns">
+    <a href="https://t.me/campus_cn" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;padding:1rem 2.25rem;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.281c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.088 13.37l-2.948-.924c-.64-.203-.653-.64.136-.95l11.57-4.461c.533-.194 1.003.132.716.214z"/></svg>
+      Telegram orqali konsultatsiya olish
+    </a>
+    <a href="#programs" class="btn-outline" style="font-size:1rem;padding:1rem 2rem;">
+      Grantlarni ko'rish →
+    </a>
+  </div>
+  <p style="margin-top:2rem;font-size:0.8rem;opacity:0.4;">Campus.cn — O'zbekiston va MDH davlatlari uchun Xitoy ta'lim konsaltingi</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Campus<span>.cn</span></div>
+      <div style="margin-top:0.5rem;font-size:0.8rem;color:rgba(255,255,255,0.3);">Xitoyda ta'lim konsaltingi</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://t.me/campus_cn" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.281c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.088 13.37l-2.948-.924c-.64-.203-.653-.64.136-.95l11.57-4.461c.533-.194 1.003.132.716.214z"/></svg>
+        Telegram
+      </a>
+      <a href="#" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/your_number" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div class="footer-copy">© 2025 Campus.cn. Barcha huquqlar himoyalangan.</div>
+  </div>
+</footer>
+
+<!-- FLOATING CTA (Mobile) -->
+<div class="floating-cta">
+  <a href="https://t.me/campus_cn" target="_blank" rel="noopener">
+    📲 Telegram orqali konsultatsiya olish
+  </a>
+</div>
+
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Animate on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.aos').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
